@@ -1,17 +1,16 @@
-package com.example.practical2;
+package sg.edu.np.mad.madpractical;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import sg.edu.np.mad.madpractical.R;
-
 public class MainActivity extends AppCompatActivity {
+
     User user = new User("Elgin Loh", "Hi i am currently from IT Year 2 and i love playing games and used to be in E-sports for mobile legends", 0, false);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,16 +20,13 @@ public class MainActivity extends AppCompatActivity {
         DisplayName.setText(user.name);
         DisplayDesc.setText(user.description);
         Button button = (Button) findViewById(R.id.follow);
-        button.setOnClickListener(new OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(user.followed == false)
-                {
+                if (user.followed == false) {
                     user.setFollowed(true);
                     button.setText("Unfollow");
-                }
-                else
-                {
+                } else {
                     user.setFollowed(false);
                     button.setText("Follow");
                 }
@@ -38,11 +34,4 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-
-
-
-
-
-
-
 }
